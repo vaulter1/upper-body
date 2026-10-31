@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Upper Body Plan: Oct 13 to Nov 20</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Upper Body"><meta name="theme-color" content="#0D1318">
+<style>
+:root{--bg:#EEF1F4;--card:#fff;--ink:#14212B;--mut:#5C6B78;--acc:#1D5CFF;--ok:#12805C;--okb:#DDF3EA;--sty:#7A5A00;--styb:#FBEFC8;--line:#D5DCE3;--in:#F3F5F8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1318;--card:#162029;--ink:#E8EEF3;--mut:#93A3B0;--acc:#6B9BFF;--ok:#4CC38A;--okb:#12382B;--sty:#F0C95A;--styb:#3B3110;--line:#26343F;--in:#0F171D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1318;--card:#162029;--ink:#E8EEF3;--mut:#93A3B0;--acc:#6B9BFF;--ok:#4CC38A;--okb:#12382B;--sty:#F0C95A;--styb:#3B3110;--line:#26343F;--in:#0F171D;color-scheme:dark}
+html,body{margin:0}body{background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,sans-serif;padding:0 14px calc(84px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto}
+.hd,h1,h2{font-family:"Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;font-weight:700;margin:0}
+h1{font-size:34px;line-height:1.05}h2{font-size:22px;margin:22px 0 8px}
+.top{padding:16px 0 6px}.sub{color:var(--mut)}
+.nav{display:flex;align-items:center;gap:8px;margin:10px 0}.nav b{flex:1;text-align:center}
+button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-height:44px}
+button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+.card h3{margin:0;font:700 21px/1.15 "Avenir Next Condensed","Arial Narrow",system-ui,sans-serif}
+.slot{color:var(--acc);font-weight:600;margin-right:6px}.cue{color:var(--mut);font-size:14px;margin:4px 0 8px}
+.tg{font-weight:600;margin-top:2px}
+.set{display:flex;align-items:center;gap:6px;margin:6px 0}.set span{width:20px;color:var(--mut)}
+.set i{font-style:normal;color:var(--mut);font-size:13px;width:34px}
+input{width:72px;font:600 18px system-ui,-apple-system,sans-serif;text-align:center;background:var(--in);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 4px;min-height:44px;box-sizing:border-box}
+.bd{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;font-weight:600;font-size:14px}
+.up{background:var(--okb);color:var(--ok)}.stay{background:var(--styb);color:var(--sty)}
+.row{display:flex;width:100%;gap:10px;text-align:left;margin:6px 0;align-items:center}.row b{width:92px}.row span{flex:1}.row em{font-style:normal;color:var(--mut)}
+.note{background:var(--in);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:8px 4px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mut);font-weight:600}
+#tabs{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+#tabs button{flex:1;border:0;border-radius:0;background:none;min-height:56px;font-weight:600;color:var(--mut)}#tabs button.on{color:var(--acc)}
+</style></head><body><div id="app"></div><nav id="tabs"><button data-t="today">Today</button><button data-t="plan">Plan</button><button data-t="prog">Progress</button></nav><input type=file id=fi accept=".json,application/json" hidden>
+<script>
+const $=s=>document.querySelector(s),LA=[8,14,20,26,32,38,44,50],LB=[8,10,14,15,20,26,32,38,44,50],START=new Date(2026,9,13);
+const P=["","Test","Build 1","Build 1","Build 2","Build 2","Retest"],SES=["Push A","Pull A","Light","Push B","Pull B"],SL=["1A","1B","2A","2B","3A"];
+const EX={
+MON_BENCH:["DB Bench Press","w","8-10","6-8","A","Blades pinched, elbows about 45°, press over shoulders. 2 s lowering."],
+MON_LAT:["Lateral Raise","w","12-15","10-12","B","Lead with elbows to shoulder height; no swinging. 10 and 15 lb kettlebells fill gaps."],
+MON_OHP:["Standing DB Overhead Press","w","8-10","6-8","A","Ribs down, glutes tight, biceps by ears at the top."],
+MON_TRI:["Overhead DB Triceps Extension","w","12-15","10-12","A","One DB, both hands; elbows forward; full stretch."],
+TUE_ROW:["Bent-Over DB Row","w","8-10","6-8","A","Hinge about 45°, flat back, row to hips, 1 s squeeze."],
+TUE_RFLY:["Bent-Over Reverse Fly","w","12-15","10-12","B","Light; raise to torso line; don’t shrug."],
+TUE_CHIN:["Chin-Up (palms toward you)","pu","","","","Dead hang to chin over bar, lower 2-3 s, no kipping. Stop 1 rep short."],
+TUE_SHRUG:["DB Shrug","w","12-15","10-12","A","Straight up toward ears; hold 1 s."],
+TUE_DEAD:["Dead Bug (reps per side)","bw","10","12","","Low back stays flat; move slowly."],
+WED_HAM:["Hammer Curl","w","12-15","12-15","B","Palms facing in; easy effort."],
+WED_HALO:["KB Halo, 15 lb (reps each way)","fx","10","10","","Circle close to head, ribs down."],
+WED_PLANK:["Plank (seconds)","tm","40 s","40 s","","Straight line, glutes tight. Add 5 s a week if easy."],
+WED_LTE:["Lying DB Triceps Extension","w","12-15","12-15","A","Upper arms vertical; keep it light."],
+THU_INC:["Incline DB Press (or neutral-grip flat)","w","12-15","10-12","A","Bench 30-45°, or palms facing in if flat."],
+THU_PUSH:["Push-Up","bw","AMRAP -2","AMRAP -2","","Body straight; stop 2 reps before failure; beat last week."],
+THU_ARN:["Arnold Press","w","12-15","10-12","A","Rotate palms to face forward as you press; start lighter than your overhead press."],
+THU_LAT:["Lateral Raise","w","12-15","10-12","B","Same as Monday."],
+THU_CARRY:["KB Suitcase Carry (seconds per side)","kb","30 s","40 s","","35 lb kettlebell, stand tall. Move to 40 lb when easy."],
+FRI_SROW:["Single-Arm DB Row (reps per side)","w","12-15","10-12","A","Hand and knee on bench; pull to hip."],
+FRI_PULL:["Pull-Up (palms away or neutral)","pu","","","","Dead hang to chin over bar, no kipping. Stop 1 rep short."],
+FRI_CURL:["Slow-Lowering DB Curl","w","12-15","10-12","B","3 s lowering."],
+FRI_SKULL:["Lying DB Skull Crusher","w","12-15","10-12","A","Upper arms vertical; lower to sides of head."],
+FRI_SIDE:["Side Plank (seconds per side)","tm","30 s","40 s","","Hips high. Add 5 s a week if easy."],
+T_ROW:["Bent-Over DB Row: TEST","T","","","A","2 warm-up sets, then a weight you can do for 10 reps with 2 left in the tank."],
+T_PULL:["Pull-Up: MAX TEST","Tb","","","","One set of strict reps from a dead hang. Log reps."],
+T_CURL:["DB Curl: TEST","T","","","B","2 warm-up sets, then 10 strict reps with 2 left in the tank."],
+T_PLANK:["Plank: MAX HOLD TEST (seconds)","Tb","","","","Hold until form breaks. Log seconds."],
+T_OHP:["Standing DB Overhead Press: TEST","T","","","A","2 warm-up sets, then 10 reps with 2 left in the tank."],
+T_BENCH:["DB Bench Press: TEST","T","","","A","2 warm-up sets, then 10 reps with 2 left in the tank."],
+T_PUSH:["Push-Up: MAX TEST","Tb","","","","One set: max clean reps, chest a fist above the floor."]};
+const NORM=["MON_BENCH,MON_LAT,MON_OHP,MON_TRI","TUE_ROW,TUE_RFLY,TUE_CHIN,TUE_SHRUG,TUE_DEAD","WED_HAM,WED_HALO,WED_PLANK,WED_LTE","THU_INC,THU_PUSH,THU_ARN,THU_LAT,THU_CARRY","FRI_SROW,FRI_PULL,FRI_CURL,FRI_SKULL,FRI_SIDE"];
+const TEST={1:"T_ROW,TUE_RFLY,T_PULL,TUE_SHRUG,TUE_DEAD",2:"T_CURL,WED_HALO,T_PLANK,T_OHP",3:"T_BENCH,T_PUSH,THU_ARN,THU_LAT,THU_CARRY"};
+const BR={MON_BENCH:["b",1],MON_LAT:["o",.3],MON_OHP:["o",1],MON_TRI:["c",1.25],TUE_ROW:["r",1],TUE_RFLY:["r",.3],TUE_SHRUG:["r",1.2],WED_HAM:["c",.85],WED_LTE:["b",.4],THU_INC:["b",.85],THU_ARN:["o",.7],THU_LAT:["o",.3],FRI_SROW:["r",.85],FRI_CURL:["c",.85],FRI_SKULL:["b",.5]};
+const TS={b:"T_BENCH",r:"T_ROW",c:"T_CURL",o:"T_OHP"};
+function sets(id,sl,dow,wk){const k=EX[id][1];if(k[0]=="T")return 1;if(sl=="3A")return wk==4||wk==5?3:2;if(wk==1||wk==6)return 2;if(wk<4)return 3;return(sl=="1A"||sl=="1B")&&dow!=2?4:3}
+const days=[],M={};
+for(let d=1;d<=39;d++){const wk=d<=6?1:2+Math.floor((d-7)/7),dow=d%7,date=new Date(START);date.setDate(START.getDate()+d-1);let items=[],label="Rest day";
+if(dow<5){const t=(wk==1||wk==6)&&dow>=1&&dow<=3;label=SES[dow]+(t?" (test)":"");items=(t?TEST[dow]:NORM[dow]).split(",").map((id,i)=>{M[id+"|"+wk]=d;return{id,slot:SL[i],n:sets(id,SL[i],dow,wk)}})}
+days.push({d,wk,dow,date,label,items})}
+let S={log:{}},DOC=null,tm=null,TAB="today",CUR=Math.min(39,Math.max(1,Math.floor((Date.now()-START)/864e5)+1));
+try{S.log=JSON.parse(localStorage.getItem("ubp")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("ubp",JSON.stringify(S.log))}catch(e){}}
+const num=v=>v===""||v==null||isNaN(+v)?null:+v,rd=(d,id)=>S.log[d+"|"+id]||{w:[],r:[]},lg=(d,id)=>S.log[d+"|"+id]||(S.log[d+"|"+id]={w:[],r:[]});
+const w1=(id,wk)=>{const d=M[id+"|"+wk];return d?num(rd(d,id).w[0]):null},r1=(id,wk)=>{const d=M[id+"|"+wk];return d?num(rd(d,id).r[0]):null};
+const LST=id=>EX[id][4]=="A"?LA:LB,fl=(v,L)=>{let x=L[0];for(const a of L)if(a<=v)x=a;return x},nx=(c,L)=>{const i=L.indexOf(c);return i>=0&&i<L.length-1?L[i+1]:c};
+const base=id=>{const b=BR[id];if(!b)return null;const t=w1(TS[b[0]],1);return t==null?null:fl(t*b[1],LST(id))};
+const cl=(id,wk)=>wk>=2&&wk<=5&&EX[id][1]=="w"?parseInt((wk>=4?EX[id][3]:EX[id][2]).split("-")[1]):null;
+function cw(id,wk){const a=w1(id,wk);return a!=null?a:tw(id,wk)}
+function tw(id,wk){if(wk<=2)return base(id);if(wk==6)return cw(id,5);const c=cw(id,wk-1);return c==null?null:stat(id,wk-1)=="up"?nx(c,LST(id)):c}
+function tp(id,wk){if(wk<=2){const m=r1("T_PULL",1);return m==null?null:Math.max(1,Math.round(m*(id=="TUE_CHIN"?.75:.7)))}if(wk==6)return tp(id,5);const p=tp(id,wk-1);return p==null?null:p+(stat(id,wk-1)=="up"?1:0)}
+function stat(id,wk){const d=M[id+"|"+wk];if(!d)return"";const k=EX[id][1],it=days[d-1].items.find(x=>x.id==id),rs=rd(d,id).r.map(num).filter(x=>x!=null);if(!rs.length)return"";const c=k=="pu"?tp(id,wk):cl(id,wk);if(c==null)return"";return rs.length>=it.n&&Math.min(...rs)>=c?"up":"stay"}
+const fd=d=>d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}),done=x=>x.items.filter(i=>rd(x.d,i.id).r.some(v=>v!=null&&v!=="")).length;
+function card(dy,it){const e=EX[it.id],k=e[1],wk=dy.wk,L=rd(dy.d,it.id),hw=k=="w"||k=="T",rt=wk==4||wk==5?e[3]:e[2];
+let tg=k=="w"?tw(it.id,wk):k=="kb"?35:k=="fx"?15:null,pt=k=="pu"?tp(it.id,wk):null,txt=k=="T"?"10 reps, 2 in reserve":k=="Tb"?"max effort":k=="pu"?(pt==null?"log your max pull-up test first":"aim for "+pt+" per set"):rt;
+const rest=k[0]=="T"?120:it.slot[1]=="A"?30:dy.dow<=1?90:60,sx=stat(it.id,wk),un=k=="tm"||k=="kb"||it.id=="T_PLANK"?"sec":"reps";
+let rows="";for(let i=0;i<it.n;i++){const a=`data-d=${dy.d} data-id=${it.id} data-i=${i}`;rows+=`<div class=set><span>${i+1}</span>${hw?`<input inputmode=decimal ${a} data-f=w value="${L.w[i]??""}" placeholder="${tg??"lb"}" aria-label="Set ${i+1} weight"><i>lb</i>`:""}<input inputmode=numeric ${a} data-f=r value="${L.r[i]??""}" placeholder="${k=="w"?rt:pt??""}" aria-label="Set ${i+1} ${un}"><i>${un}</i></div>`}
+const bd=sx?`<div class="bd ${sx}">${k=="pu"?(sx=="up"?"Target hit: +1 rep next week":"Same target next week"):(sx=="up"?"Go up next time":"Stay at this weight")}</div>`:"";
+return`<section class=card><h3><span class=slot>${it.slot}</span>${e[0]}</h3><div class=tg>${it.n} ${it.n>1?"sets":"set"} of ${txt}${tg!=null&&k!="Tb"?" at "+tg+" lb":""}</div><div class=cue>${e[5]} Rest ${rest} s${it.slot[1]=="A"&&k[0]!="T"?" (then straight to the next exercise)":""}.</div>${rows}${bd}</section>`}
+function vToday(){const dy=days[CUR-1],n=dy.items.length;let h=`<div class=top><h1>${dy.label}</h1><div class=sub>Day ${dy.d} of 39, ${P[dy.wk]}${n?", "+done(dy)+" of "+n+" logged":""}</div></div><div class=nav><button data-nav=-1 aria-label="Previous day">‹</button><b>${fd(dy.date)}</b><button data-nav=1 aria-label="Next day">›</button></div>`;
+if(!n)return h+`<div class=card>No lifting today. Ride long, eat well, recover.</div>`;
+if(dy.wk==1)h+=`<div class=note>Test week: log each test first. Targets for the other lifts fill in from your test results.</div>`;
+if(dy.wk==6&&dy.dow>=1&&dy.dow<=3)h+=`<div class=note>Retest day: repeat the Week 1 tests, then compare on the Progress tab.</div>`;
+return h+dy.items.map(it=>card(dy,it)).join("")}
+function vPlan(){let h=`<div class=top><h1>Plan</h1><div class=sub>Oct 13 to Nov 20. Tap a day to open it.</div></div>`;for(let w=1;w<=6;w++){h+=`<h2>Week ${w}, ${P[w]}</h2>`;days.filter(x=>x.wk==w&&x.dow<5).forEach(x=>h+=`<button class=row data-go=${x.d}><b>${fd(x.date)}</b><span>${x.label}</span><em>${done(x)}/${x.items.length}</em></button>`)}return h}
+function vProg(){const f=(id,wk)=>{const w=w1(id,wk),r=r1(id,wk);return r==null?"–":(w!=null?w+" × "+r:r)},e1=(id,wk)=>{const w=w1(id,wk),r=r1(id,wk);return w!=null&&r!=null?Math.round(w*(1+r/30)):null};
+let t=`<table><tr><th>Test</th><th>Week 1</th><th>Week 6</th><th>Est. 1RM</th></tr>`;
+[["DB bench","T_BENCH"],["Row","T_ROW"],["DB curl","T_CURL"],["Overhead press","T_OHP"],["Push-ups","T_PUSH"],["Pull-ups","T_PULL"],["Plank (sec)","T_PLANK"]].forEach(([n,id])=>{const a=e1(id,1),b=e1(id,6);t+=`<tr><td>${n}</td><td>${f(id,1)}</td><td>${f(id,6)}</td><td>${a!=null&&b!=null?(b-a>=0?"+":"")+(b-a)+" lb":"–"}</td></tr>`});t+="</table>";
+let v=`<table><tr><th>Week</th><th>Phase</th><th>Logged</th><th>Volume (lb)</th></tr>`;
+for(let w=1;w<=6;w++){const ds=days.filter(x=>x.wk==w),pl=ds.reduce((a,x)=>a+x.items.length,0),lo=ds.reduce((a,x)=>a+done(x),0),vol=ds.reduce((a,x)=>a+x.items.reduce((b,i)=>{const L=rd(x.d,i.id);return b+L.w.reduce((c,wv,j)=>c+(num(wv)||0)*(num(L.r[j])||0),0)},0),0);v+=`<tr><td>${w}</td><td>${P[w]}</td><td>${lo}/${pl}</td><td>${vol?vol.toLocaleString():"–"}</td></tr>`}
+return`<div class=top><h1>Progress</h1><div class=sub>Tests: Week 1 vs Week 6 (10-rep sets show weight × reps).</div></div><section class=card>${t}</section><section class=card>${v}</table></section><section class=card><h3>Backup</h3><div class=cue>Your log lives on this phone only. Export a copy now and then, and before you delete the app or clear Safari data.${lx()?" Last export: "+lx()+".":""}</div><button data-act=exp>Export log</button> <button data-act=imp>Import log</button></section><div class=note>Estimated 1RM uses weight × (1 + reps ÷ 30). It compares your two tests only; nothing here asks for a true max. Your log saves on this device.</div>`}
+function render(){$("#app").innerHTML=TAB=="today"?vToday():TAB=="plan"?vPlan():vProg();document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t==TAB))}
+document.addEventListener("change",e=>{const t=e.target,{d,id,i,f}=t.dataset;if(!id)return;const L=lg(+d,id),v=t.value.trim(),k=EX[id][1];L[f][+i]=v;
+if(f=="r"&&v!==""&&(k=="w"||k=="T")&&(L.w[+i]==null||L.w[+i]==="")){const g=+i>0?L.w[+i-1]:tw(id,days[+d-1].wk);if(g!=null&&g!=="")L.w[+i]=g}save();render()});
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const D=b.dataset;if(D.t){TAB=D.t}else if(D.nav){CUR=Math.min(39,Math.max(1,CUR+ +D.nav))}else if(D.go){CUR=+D.go;TAB="today"}else if(D.act=="exp"){exp();return}else if(D.act=="imp"){$("#fi").click();return}else return;render();scrollTo(0,0)});
+const lx=()=>{try{return localStorage.getItem("ubp_x")||""}catch(e){return""}},mark=()=>{try{localStorage.setItem("ubp_x",new Date().toLocaleDateString("en-US",{month:"short",day:"numeric"}))}catch(e){}render()};
+async function exp(){const f=new File([JSON.stringify({v:1,log:S.log})],"upper-body-log.json",{type:"application/json"});
+if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});mark();return}catch(e){if(e.name=="AbortError")return}}
+const a=document.createElement("a");a.href=URL.createObjectURL(f);a.download=f.name;a.click();mark()}
+$("#fi").addEventListener("change",async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;try{const o=JSON.parse(await f.text());if(!o||typeof o.log!="object")throw 0;if(!confirm("Replace the log on this phone with the backup?"))return;S.log=o.log;save();render()}catch(x){alert("That file isn’t a valid log backup.")}});
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();
+if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+render();
+</script></body></html>
